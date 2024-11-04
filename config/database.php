@@ -112,6 +112,17 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'host' => env('DB2_HOST', '127.0.0.1'),
+            'port' => env('DB2_PORT', 27017),
+            'database' => env('DB2_DATABASE'),
+            'username' => env('DB2_USERNAME'),
+            'password' => env('DB2_PASSWORD'),
+            'options' => [
+                'database' => env('DB2_AUTHENTICATION_DATABASE', 'admin') // optional 
+            ]
+        ],
     ],
 
     /*
@@ -147,7 +158,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
